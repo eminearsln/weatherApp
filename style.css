@@ -1,0 +1,83 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  background-image: url(img/sky.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  transition: background-image 1s ease-in-out;
+}
+
+h1 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 5rem;
+  margin-top: 150px;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+.btnDiv {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+.btn {
+  width: 200px;
+  font-size: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #fff;
+  background: rgba(128, 128, 128, 0.438);
+  color: #fff;
+  cursor: pointer;
+  padding: 4px;
+  box-shadow: 15px 12px 93px 17px #e7d5d5;
+}
+.btn:hover {
+  background-color: #dfdfdf8c;
+  transition: 0.3s;
+}
+
+.inputText {
+  width: 500px;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+  border: none;
+  outline: none;
+  text-align: center;
+  border-bottom: 2px solid blue;
+  font-size: 20px;
+}
+.info {
+  text-align: center;
+  color: #fff;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.info p {
+  margin-top: 20px;
+}
+
+#temprature {
+  font-size: 5rem;
+}
+#hissedilen {
+  font-size: 1rem;
+}
+.weather-info {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
