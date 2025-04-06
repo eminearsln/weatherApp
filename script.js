@@ -37,30 +37,44 @@ function getData(name) {
       hum.textContent = `Humidity: ${humidity}%`;
       wind.textContent = `Wind Speed: ${speed} m/s`;
       //hava durumu resimlerini ekleme
-      changeBackground(data.weather[0].main);
+      console.log(data.weather[0].main);
+      changeBackground(
+        data.weather[0].main,
+        data.weather[0].description,
+        data.main.temp,
+        data.wind.speed
+      );
     })
     .catch((err) => console.log(err));
 
   cityInput.value = "";
   cityInput.focus();
 }
-function changeBackground(weather) {
-  switch (weather) {
-    case "Clear":
-      document.body.style.backgroundImage = "url('img/sunny.jpeg')";
-      break;
-    case "Rain":
-      document.body.style.backgroundImage = "url('img/rainy.jpeg')";
-      break;
-    case "Clouds":
-      document.body.style.backgroundImage = "url('img/cloudy.jpeg')";
-      break;
-    case "Wind":
-      document.body.style.backgroundImage = "url('img/windy.jpeg')";
-      break;
-    default:
-      document.body.style.backgroundImage = "url('img/sky.jpg')";
+function changeBackground(weather, description, temp, windSpeed) {
+  if (windSpeed > 8) {
+    // 8 m/s üstü rüzgarlı hava
+    document.body.style.backgroundImage = "url('img/windy.gif')";
+  } else if (description.toLowerCase().includes("snow") || temp <= 0) {
+    document.body.style.backgroundImage = "url('img/snowy.webp')";
+  } else {
+    switch (weather) {
+      case "Clear":
+        document.body.style.backgroundImage = "url('img/sunny.gif')";
+        break;
+      case "Rain":
+        document.body.style.backgroundImage = "url('img/rainy.webp')";
+        break;
+      case "Clouds":
+        document.body.style.backgroundImage = "url('img/cloudy.gif')";
+        break;
+      case "Snow":
+        document.body.style.backgroundImage = "url('img/snowy.webp')";
+        break;
+      default:
+        document.body.style.backgroundImage = "url('img/sky.jpg')";
+    }
   }
+
   document.body.style.backgroundSize = "cover";
   document.body.style.backgroundPosition = "center";
 }
